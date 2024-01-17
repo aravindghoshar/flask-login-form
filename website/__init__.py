@@ -23,7 +23,7 @@ def wait_for_db(db_uri):
 def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "adsfjwuenvcjWEOPoiajfjsndsiuhwe" 
-    app.config["SQLALCHEMY_DATABASE_URI"] = f'mysql://root:password@sql-db:3306/{DB_NAME}'
+    app.config["SQLALCHEMY_DATABASE_URI"] = f'mysql://root:password@23.20.24.105:3306/{DB_NAME}'
     wait_for_db(app.config["SQLALCHEMY_DATABASE_URI"])
     db.init_app(app)
     #if not database_exists(app.config["SQLALCHEMY_DATABASE_URI"]):

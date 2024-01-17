@@ -11,13 +11,12 @@ def video_page(video):
     print (video)
     # expect the mongo deployment to be in the same server for now
     ServerIP=request.host.split(':')[0]    
-    url = 'http://restheart:8080/videos?filter={"video.uuid":"'+video+'"}' #MONGO
+    url = 'http://23.20.24.105:81/myflix/videos?filter={"video.uuid":"'+video+'"}' #MONGO
     print(ServerIP)
-    headers = {"Authorization": "Basic YWRtaW46c2VjcmV0"}
     #request
     payload = json.dumps({ })
     print (request.endpoint)
-    response = requests.get(url, headers=headers)
+    response = requests.get(url)
     print (url)
     if response.status_code != 200:
       print("Unexpected response: {0}. Status: {1}. Message: {2}".format(response.reason, response.status, jResp['Exception']['Message']))
@@ -47,12 +46,11 @@ def home():
     print("hello")
     # expect the mongo deployment to be in the same server for now
     ServerIP=request.host.split(':')[0]    
-    url = "http://restheart:8080/videos" #MONGO
+    url = "http://23.20.24.105:81/myflix/videos" #MONGO
     #print(os.environ['AUTH'])
-    headers = {"Authorization": "Basic YWRtaW46c2VjcmV0"}
     payload = json.dumps({ })
 
-    response = requests.get(url, headers=headers)
+    response = requests.get(url)
     print (response)
     # exit if status code is not ok
     print (response)
@@ -136,13 +134,13 @@ def home():
 
               # ServerIP=request.host.split(':')[0]
               html=html+'<a href="http://'+ServerIP+':5000'+'/Video/'+uuid+'">' #back to flask
-              html=html+'<img src="http://localhost/pics/'+thumb+'">' #nginx
+              html=html+'<img src="http://23.20.24.105/pics/'+thumb+'">' #nginx
               html=html+"</a>"
               print("=======================")
               
     # expect the tfrecomm deployment to be in the same server for now
-    HOST = "tfrecomm"
-    PORT = 81  # The port used by the server
+    HOST = "54.81.140.165"
+    PORT = 8082  # The port used by the server
     received_data = ""
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))
