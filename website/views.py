@@ -114,7 +114,7 @@ def home():
                  </div>
              </nav>'''
     
-    html += "<h2> "+ current_user.name +"'s Videos</h2>"
+    html += "<h2> "+ "Hello" + current_user.name +"'s Videos</h2>"
     for index in jResp:
        print (json.dumps(index))
        print ("----------------")
