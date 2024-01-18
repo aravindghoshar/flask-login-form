@@ -133,7 +133,7 @@ def home():
               html=html+'<h3>'+name+'</h3>'
 
               # ServerIP=request.host.split(':')[0]
-              html=html+'<a href="http://'+ServerIP+':5000'+'/Video/'+uuid+'">' #back to flask
+              html=html+'<a href="http://'+ServerIP+':8080'+'/Video/'+uuid+'">' #back to flask
               html=html+'<img src="http://23.20.24.105/pics/'+thumb+'">' #nginx
               html=html+"</a>"
               print("=======================")
